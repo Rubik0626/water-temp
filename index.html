@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Python Code Execution</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 300px;
+        }
+        label, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        p {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <label for="input1">何度上昇させたいですか？(℃)
+            ※水道水の平均温度から、夏には30℃と考え、冬には10℃と考える</label>
+        <input id="input1" type="number">
+        <label for="input2">水の量(ml)</label>
+        <input id="input2" type="number">
+        <label for="input3">貴方の電子レンジは何ワットですか？(W)</label>
+        <input id="input3" type="number">
+        <button onclick="runPythonCode()">計算</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function runPythonCode() {
+            var aa = parseInt(document.getElementById('input1').value);
+            var a = parseInt(document.getElementById('input2').value);
+            var d = parseInt(document.getElementById('input3').value);
+            var b = aa * 4.2 * a;
+            var c = b / d;
+            var output = document.getElementById('output');
+            output.innerHTML = `${aa}度上昇させるには${b}J必要で、かかる時間は${c}秒です`;
+        }
+    </script>
+</body>
+</html>
